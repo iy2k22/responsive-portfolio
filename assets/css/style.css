@@ -1,0 +1,162 @@
+:root {
+    --nav-pad: 10px;
+    --header-fg: white;
+    --header-bg: #363637;
+    --body-bg: #474747;
+    --accent: rgb(0, 179, 0);
+    --accent-light: #00ca00;
+    --img-size: 100px;
+    --proj-height: 200px;
+    --proj-width: 500px;
+}
+
+body {
+    margin: 0;
+    font-family: "Noto Sans";
+    background-color: var(--body-bg);
+    color: var(--header-fg);
+}
+
+header {
+    text-align: center;
+    background-color: var(--header-bg);
+    padding: 5px;
+    border-style: solid;
+    border-color: var(--accent);
+    border-width: 0 0 10px 0;
+}
+
+header h1 {
+    text-transform: uppercase;
+    font-weight: initial;
+}
+
+#avatar {
+    width: var(--img-size);
+    height: var(--img-size);
+}
+
+nav ul {
+    padding-left: 0;
+}
+
+nav ul li {
+    margin-left: var(--nav-pad);
+    margin-right: var(--nav-pad);
+    display: inline;
+}
+
+nav ul li a {
+    font-weight: bold;
+    color: var(--header-fg);
+    text-decoration: var(--accent) solid underline 5px;
+}
+
+nav ul li a:hover {
+    text-decoration: none;
+    color: var(--accent);
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--header-bg);
+    margin: 20px;
+    width: 60%;
+    box-shadow: black 10px 10px;
+}
+
+section h2 {
+    text-transform: uppercase;
+    color: var(--header-fg);
+}
+
+section > *:nth-child(2) {
+    border-width: 0 0 0 4px;
+    border-color: var(--accent);
+    border-style: solid;
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+footer {
+    text-align: center;
+}
+
+section ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+#projects li {
+    margin-bottom: 10px;
+}
+
+#projects li:nth-last-child(1) {
+    margin-bottom: 0;
+}
+
+.project {
+    height: var(--proj-height);
+    width: var(--proj-width);
+    border-style: solid;
+    border-width: 3px;
+    border-color: var(--accent);
+    background-image: url('../images/placeholder.jpg');
+    background-size: cover;
+    display: block;
+    text-decoration: none;
+}
+
+section ul li a {
+    color: var(--accent);
+}
+
+section ul li a:visited {
+    color: var(--accent-light);
+}
+
+.placeholder {
+    color: orange;
+    text-transform: uppercase;
+}
+
+.placeholder::after {
+    content: '<placeholder>';
+}
+
+.project h3 {
+    margin: 0;
+    position: relative;
+    top: calc(var(--proj-height) - 25px);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+}
+
+.project:hover {
+    border-color: white;
+}
+
+.project:hover h3 {
+    color: var(--accent);
+}
+
+#aboutMe p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* this media query doesn't seem to be working */
+@media only screen and (max-width: 856px) {
+    :root {
+        --proj-width: 400px;
+    }
+}
