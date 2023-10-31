@@ -70,7 +70,8 @@ section {
     justify-content: center;
     background-color: var(--header-bg);
     margin: 20px;
-    width: 60%;
+    width: 80%;
+    height: 10%;
     box-shadow: black 10px 10px;
 }
 
@@ -96,31 +97,44 @@ section ul {
     list-style-type: none;
 }
 
-#projects li {
-    margin-bottom: 10px;
-}
-
-#projects li:nth-last-child(1) {
-    margin-bottom: 0;
+#projects {
+    display: grid;
+    grid-template-columns: repeat(2, var(--proj-width));
+    grid-template-rows: repeat(2, var(--proj-height));
+    grid-template-areas: 
+    "ncBE ncBE"
+    "ncFE dummy";
+    grid-gap: 1em;
 }
 
 .project {
-    height: var(--proj-height);
-    width: var(--proj-width);
     border-style: solid;
     border-width: 3px;
     border-color: var(--accent);
     background-image: url('../images/placeholder.jpg');
     background-size: cover;
+    background-position: center;
     display: block;
     text-decoration: none;
 }
 
-section ul li a {
+#ncBE {
+    grid-area: ncBE;
+}
+
+#ncFE {
+    grid-area: ncFE;
+}
+
+#dummy {
+    grid-area: dummy;
+}
+
+#contactMe ul li a {
     color: var(--accent);
 }
 
-section ul li a:visited {
+#contactMe ul li a:visited {
     color: var(--accent-light);
 }
 
@@ -136,7 +150,7 @@ section ul li a:visited {
 .project h3 {
     margin: 0;
     position: relative;
-    top: calc(var(--proj-height) - 22px);
+    top: calc(var(--proj-height) - 28px);
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
 }
@@ -154,9 +168,44 @@ section ul li a:visited {
     margin-bottom: 5px;
 }
 
-/* this media query doesn't seem to be working */
-@media only screen and (max-width: 856px) {
+@media (max-width: 1024px) {
     :root {
-        --proj-width: 400px;
+        --proj-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --proj-width: 200px;
+    }
+}
+
+@media (max-width: 425px) {
+    section > h2 {
+        font-size: small;
+    }
+
+    #projects {
+        grid-template-columns: 0;
+        grid-template-rows: repeat(3, var(--proj-height));
+        grid-template-areas: 
+        "ncBE"
+        "ncFE"
+        "dummy";
+    }
+    
+    .project {
+        width: 100px;
+    }
+    
+    .project h3 {
+        top: calc(var(--proj-height) - 25px);
+        font-size: small;
+    }
+}
+
+@media (max-width: 320px) {
+    section {
+        width: 95%;
     }
 }
