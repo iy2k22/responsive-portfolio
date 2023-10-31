@@ -12,7 +12,7 @@
 
 body {
     margin: 0;
-    font-family: "Noto Sans";
+    font-family: Arial, Helvetica, sans-serif;
     background-color: var(--body-bg);
     color: var(--header-fg);
 }
@@ -136,7 +136,7 @@ section ul li a:visited {
 .project h3 {
     margin: 0;
     position: relative;
-    top: calc(var(--proj-height) - 25px);
+    top: calc(var(--proj-height) - 22px);
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
 }
